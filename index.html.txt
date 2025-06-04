@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Júlio Maló - Portfólio Multilíngue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis CSS para cores, tipografia e transições */
+        :root {
+            --primary: #0056b3; /* Azul primário */
+            --secondary: #2c3e50; /* Azul escuro/cinza para contraste */
+            --accent: #e74c3c; /* Vermelho para destaque */
+            --light: #f8f9fa; /* Fundo claro */
+            --dark: #343a40; /* Texto escuro */
+            --gray: #6c757d; /* Cinza para detalhes */
+
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --transition-speed: 0.3s; /* Velocidade padrão para transições */
+            --shadow-light: 0 5px 20px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --shadow-strong: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Reset básico e estilos globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all var(--transition-speed) ease-in-out; /* Transições suaves para todos os elementos */
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--light); /* Fundo suave */
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 80px; /* Espaço para o seletor de idioma fixo */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Seletor de Idioma */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: var(--shadow-light);
+            padding: 5px;
+        }
+        
+        .lang-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            font-size: 0.9rem;
+            color: var(--gray);
+            transition: background var(--transition-speed), color var(--transition-speed), transform var(--transition-speed);
+        }
+        
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background: rgba(0, 86, 179, 0.1);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white; /* Cor padrão para texto no cabeçalho */
+            padding: 60px 0 40px;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 30px;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            background-color: #fff;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            color: white; /* Explicitamente branco para garantir visibilidade */
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra mais forte para destaque */
+        }
+        
+        .header-content h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: white; /* Explicitamente branco para garantir visibilidade */
+            opacity: 0.98; /* Levemente mais opaco */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Adiciona sombra para o h2 também */
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: background var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px) scale(1.02); /* Efeito mais pronunciado */
+        }
+        
+        /* Navegação */
+        nav {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav li {
+            padding: 20px 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color var(--transition-speed);
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width var(--transition-speed) ease-out;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Estilos de Seção */
+        section {
+            padding: 70px 0;
+            opacity: 0; /* Para animação de fade-in */
+            transform: translateY(20px); /* Para animação de slide-up */
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva de animação mais suave */
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Título de Seção - Estilo Banner Moderno e Dinâmico */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            background: linear-gradient(135deg, #007bff 0%, var(--primary) 50%, var(--secondary) 100%); /* Gradiente mais vibrante e moderno */
+            color: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+            /* Animação inicial */
+            transform: translateY(0); 
+            opacity: 1; 
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out, box-shadow 0.3s ease-in-out;
+            background-size: 200% 200%; /* Para animação do gradiente */
+            animation: gradientShift 10s ease infinite alternate; /* Animação suave do gradiente */
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .section-title:hover {
+            box-shadow: var(--shadow-strong);
+            transform: translateY(-5px); /* Efeito de leve levantamento no hover */
+        }
+
+        /* Animação para o banner quando a seção se torna visível */
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        section.is-visible .section-title {
+            animation: slideInFromTop 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards, gradientShift 10s ease infinite alternate; /* Curva de animação mais suave */
+        }
+
+        .section-title h2 {
+            font-size: 3rem; /* Maior para impacto */
+            color: white;
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Sombra mais definida */
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+            transition: width 0.4s ease, background-color 0.4s ease;
+        }
+
+        .section-title:hover h2::after {
+            width: 150px;
+            background-color: #ffdd57; /* Um amarelo mais vibrante no hover */
+        }
+        
+        /* Seção Sobre Mim */
+        .about-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px; /* Mais espesso */
+            height: 100%;
+            background: var(--primary);
+            border-top-left-radius: 20px; /* Borda arredondada */
+            border-bottom-left-radius: 20px;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(0, 86, 179, 0.1), rgba(44, 62, 80, 0.1));
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil para o destaque */
+        }
+        
+        /* Seção Experiência - Linha do Tempo */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .timeline-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+            border: 4px solid var(--primary);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+            right: auto;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content .date {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo específico para item de imagem na linha do tempo */
+        .timeline-image-item {
+            padding-top: 5px; 
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .timeline-image-item .timeline-content {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            box-shadow: none;
+            border: none;
+            height: auto;
+            min-height: unset;
+        }
+
+        .timeline-image-item .timeline-content::after {
+            display: none; /* Esconde o círculo para itens de imagem */
+        }
+
+        /* Ajuste de posição vertical da imagem para desktop */
+        @media (min-width: 769px) {
+            .timeline-image-item {
+                margin-top: -120px; /* Ajuste para mover para cima */
+            }
+        }
+
+        /* Para mobile, resetar margin-top e garantir empilhamento correto */
+        @media (max-width: 768px) {
+            .timeline-image-item {
+                margin-top: 0;
+                padding-left: 70px;
+                left: 0;
+            }
+        }
+
+        /* Seção de Competências */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px) scale(1.01); /* Efeito mais sutil de scale */
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.6rem; /* Aumentado */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .skill {
+            background: rgba(0, 86, 179, 0.1);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil para os skills */
+        }
+        
+        .skill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px) scale(1.05); /* Efeito mais pronunciado */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+        }
+        
+        /* Certificações */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .certificate-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            position: relative;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px) scale(1.02); /* Efeito mais pronunciado */
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .certificate-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+        }
+        
+        .certificate-body {
+            padding: 25px;
+        }
+        
+        .certificate-body h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .certificate-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .competencies {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .competencies h5 {
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 50px 0 20px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            margin-top: 50px;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2); /* Sombra superior para o rodapé */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.6rem; /* Aumentado */
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: white; /* Corrigido para branco */
+            font-weight: 700;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 60px; /* Mais largo */
+            height: 4px; /* Mais espesso */
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 48px; /* Maior */
+            height: 48px; /* Maior */
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15); /* Mais visível */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem; /* Ícone maior */
+            transition: all var(--transition-speed);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil */
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-7px) scale(1.15); /* Efeito mais dramático */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8; /* Mais visível */
+        }
+
+        /* Botão de rolagem para o topo */
+        #scrollTopBtn {
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Fixo na tela */
+            bottom: 30px; /* Distância do fundo */
+            right: 30px; /* Distância da direita */
+            z-index: 99; /* Acima de outros elementos */
+            border: none; /* Sem borda */
+            outline: none; /* Sem contorno ao focar */
+            background-color: var(--primary); /* Cor de fundo */
+            color: white; /* Cor do ícone */
+            cursor: pointer; /* Cursor de ponteiro */
+            padding: 15px; /* Preenchimento */
+            border-radius: 50%; /* Circular */
+            font-size: 1.5rem; /* Tamanho do ícone */
+            box-shadow: var(--shadow-medium); /* Sombra */
+            transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        #scrollTopBtn:hover {
+            background-color: var(--accent); /* Mudar cor no hover */
+            transform: translateY(-5px) scale(1.1); /* Efeito de elevação */
+            box-shadow: var(--shadow-strong);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: -10px !important;
+                right: auto;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                padding: 15px;
+            }
+            
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content h2 {
+                font-size: 1.2rem;
+            }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .lang-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                padding: 30px 15px;
+                border-radius: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .section-title h2::after {
+                width: 80px;
+            }
+            .section-title:hover h2::after {
+                width: 120px;
+            }
+
+            .skills-container, .certificates-grid, .footer-content {
+                grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+            }
+
+            .footer-section {
+                min-width: unset; /* Remove min-width para mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-image">
+                    <img src="https://1drv.ms/i/c/b100e073279e5352/IQRIhAvXW1XmTaMbE2wajNTuAUuPRdb3qnMAO_1ObEIxrdA?width=1439&height=1913" alt="Foto de Perfil de Júlio Maló">
+                </div>
+                <h1>Júlio Maló</h1>
+                <h2 data-translate="job_title">Técnico em Controle de Qualidade Geotécnica | Solos, Agregados & Betuminosos | Normas NP/NE/ASTM/ISO</h2>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Luanda, Angola</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>juliomalo811@outlook.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+244 936 918 172</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <ul>
+                <li><a href="#about" data-translate="menu_about">Sobre</a></li>
+                <li><a href="#experience" data-translate="menu_experience">Experiência</a></li>
+                <li><a href="#skills" data-translate="menu_skills">Competências</a></li>
+                <li><a href="#certifications" data-translate="menu_certifications">Certificações</a></li>
+                <li><a href="#contact" data-translate="menu_contact">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="about_title">Sobre Mim</h2>
+            </div>
+            
+            <div class="about-content">
+                <p data-translate="about_p1" id="about-text-content">Técnico de Laboratório com mais de 5 anos especializado em controle de qualidade geotécnica para grandes obras em Angola. Executo todos os ensaios de caracterização (solos, agregados, betuminosos e betão) seguindo normas de qualidade implantadas no laboratório (NP, ASTM e ISO), garantindo conformidade e mitigando riscos estruturais.</p>
+                
+                <div class="highlight">
+                    <p data-translate="about_p2">Tenho domínio avançado em Excel e outros softwares para análise crítica de dados e otimização de processos. Comprometido com normas técnicas que assegurem segurança e sustentabilidade em projetos de infraestrutura.</p>
+                </div>
+                
+                <p data-translate="about_p3">Busco desafios em engenharia civil onde minha expertise contribua para resiliência em escalas globais, aplicando conhecimentos em metrologia, mecânica dos solos e patologias em estruturas de concreto.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f0f4f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="experience_title">Experiência Profissional</h2>
+            </div>
+            
+            <div class="timeline">
+                <!-- Experience 4 (MCA) - abr 2024 - Presente -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">abr 2024 - <span data-translate="present">Presente</span></span>
+                        <h3 data-translate="job1_title">Técnico de Laboratório de Controle de Qualidade</h3>
+                        <h4>MCA - Angola</h4>
+                        <p data-translate="job1_desc">Faço controlo de qualidade em grandes projetos fotovoltaicos, assegurando confiabilidade dos ensaios segundo as normas de qualidades (NP/ASTM/UNEC).</p>
+                        <p><strong data-translate="competences">Competências:</strong> <span data-translate="job1_skills">Liderança de ensaios, Excel Avançado (Macros, Planilhas Dinâmicas), Controle de Qualidade em Projetos de Energia Solar</span>.</p>
+                    </div>
+                </div>
+                <!-- Image for MCA experience - on the opposite side -->
+                <div class="timeline-item timeline-image-item">
+                    <div class="timeline-content">
+                        <img src="https://1drv.ms/i/c/41d14dd0accae611/IQR5Gcs1P-KuSogG501E2v_yASCdOvEflusQz8vqe-uyp1I?width=1024" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="[Image of Técnico de Laboratório de Qualidade]">
+                    </div>
+                </div>
+
+                <!-- Experience 3 (Mota-Engil) - out 2022 - abr 2024 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">out 2022 - abr 2024</span>
+                        <h3 data-translate="job2_title">Técnico de Laboratório Geotecnia</h3>
+                        <h4>Mota-Engil Angola - Luanda, Angola</h4>
+                        <p data-translate="job2_desc">Desempenhei um papel crucial no laboratório Central, executando a caracterização geotécnica de mais de 500 amostras de solo para garantir estrita conformidade com a NP NE/UNEC.</p>
+                        <p><strong data-translate="competences">Competências:</strong> <span data-translate="job2_skills">Construção, Microsoft Office, Análise de Solos, Gestão de Laboratório</span>.</p>
+                    </div>
+                </div>
+                <!-- New Image for Mota-Engil experience - on the opposite side -->
+                <div class="timeline-item timeline-image-item">
+                    <div class="timeline-content">
+                        <img src="https://1drv.ms/i/c/41d14dd0accae611/IQTTLOiGa80xQaZXz4LRISdbAScBuHiTIwrfPBVP3xPRrjw?width=1024" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="[Image of Técnico de Laboratório Geotecnia]">
+                    </div>
+                </div>
+                
+                <!-- Experience 2 (Omatapalo) - ago 2019 - ago 2022 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">ago 2019 - ago 2022</span>
+                        <h3 data-translate="job3_title">Técnico de Laboratório</h3>
+                        <h4>Omatapalo - Angola</h4>
+                        <p data-translate="job3_desc">Atuação em laboratório com foco em ensaios de caracterização de materiais de construção, agregados e solos, seguindo normas técnicas estabelecidas.</p>
+                        <p><strong data-translate="competences">Competências:</strong> <span data-translate="job3_skills">Execução de Ensaios, Controle de Qualidade, Análise de Resultados</span>.</p>
+                    </div>
+                </div>
+                <!-- New Image for Omatapalo experience - on the opposite side -->
+                <div class="timeline-item timeline-image-item">
+                    <div class="timeline-content">
+                        <img src="https://1drv.ms/i/c/41d14dd0accae611/IQSBAmiWnbPBQ6dq2oOKEGAZAUfp3jQKn7LX9ur-CMDPvI0?width=1024" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="[Image of Técnico de Laboratório Omatapalo]">
+                    </div>
+                </div>
+
+                <!-- Experience 1 (Odebrecht) - 2017 - 2019 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">2017 - 2019</span>
+                        <h3 data-translate="job4_title">Técnico de Laboratório</h3>
+                        <h4>Odebrecht - Angola</h4>
+                        <p data-translate="job4_desc">Trabalhei como técnico de laboratório, executando ensaios de caracterização completa de Solos, Agregados e Betuminosos. Realizei o controlo de Betão (desde a moldagem até ao rompimento) e o controlo de Trecho no Campo (In Situ), entre outros ensaios.</p>
+                        <p><strong data-translate="competences">Competências:</strong> <span data-translate="job4_skills">Caracterização de Solos, Caracterização de Agregados, Caracterização de Betuminosos, Controlo de Betão, Controlo de Trecho no Campo (In Situ), Ensaios de Laboratório</span>.</p>
+                    </div>
+                </div>
+                <!-- New Image for Odebrecht experience - on the opposite side -->
+                <div class="timeline-item timeline-image-item">
+                    <div class="timeline-content">
+                        <img src="https://1drv.ms/i/c/41d14dd0accae611/IQSwh0-VtAqLTLRJsum3qvkKAVdyHrGjx_TxIyvm0Qzn35I?width=1024" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="[Image of Técnico de Laboratório Odebrecht]">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="skills_title">Principais Competências</h2>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-flask"></i> <span data-translate="soil_tests">Ensaios de Solos</span></h3>
+                    <div class="skills-list">
+                        <span class="skill">Proctor</span>
+                        <span class="skill" data-translate="granulometry">Granulometria</span>
+                        <span class="skill" data-translate="attenberg">Limites de Attenberg</span>
+                        <span class="skill">CBR</span>
+                        <span class="skill" data-translate="max_density">Densidade Máxima</span>
+                        <span class="skill" data-translate="geotech_char">Caracterização Geotécnica</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-hard-hat"></i> <span data-translate="concrete_control">Controle de Concreto</span></h3>
+                    <div class="skills-list">
+                        <span class="skill">Slump Test</span>
+                        <span class="skill" data-translate="compression">Resistência à Compressão</span>
+                        <span class="skill" data-translate="reflection">Reflexão</span>
+                        <span class="skill" data-translate="concrete_analysis">Análise de Betão</span>
+                        <span class="skill" data-translate="pathologies">Patologias em Estruturas</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> <span data-translate="quality_management">Gestão de Qualidade</span></h3>
+                    <div class="skills-list">
+                        <span class="skill" data-translate="audits">Auditorias Internas</span>
+                        <span class="skill" data-translate="compliance">Conformidade ASTM/ISO</span>
+                        <span class="skill" data-translate="quality_system">Sistema de Qualidade</span>
+                        <span class="skill" data-translate="risk_mitigation">Mitigação de Riscos</span>
+                        <span class="skill" data-translate="process_control">Controle de Processos</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-road"></i> <span data-translate="bituminous_tests">Ensaios de Betuminosos</span></h3>
+                    <div class="skills-list">
+                        <span class="skill">Marshall</span>
+                        <span class="skill" data-translate="max_density_dmt">Densidade Máxima (DMT)</span>
+                        <span class="skill" data-translate="binder_content">Teor de Ligante</span>
+                        <span class="skill" data-translate="void_density">Densidade de Vazios</span>
+                        <span class="skill">Baridades</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> <span data-translate="technical_tools">Ferramentas Técnicas</span></h3>
+                    <div class="skills-list">
+                        <span class="skill" data-translate="advanced_excel">Excel Avançado</span>
+                        <span class="skill">Macros Excel</span>
+                        <span class="skill" data-translate="dynamic_sheets">Planilhas Dinâmicas</span>
+                        <span class="skill">Go-Lab (Avançado)</span>
+                        <span class="skill" data-translate="data_analysis">Análise de Dados</span>
+                        <span class="skill">Microsoft Office</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certifications Section -->
+    <section id="certifications" style="background-color: #f0f4f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="certifications_title">Licenças e Certificados</h2>
+            </div>
+            
+            <div class="certificates-grid">
+                <!-- Certificate 1 -->
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 data-translate="metrology">Metrologia</h3>
+                    </div>
+                    <div class="certificate-body">
+                        <h4>IPETEC - Instituto de Pesquisa Educação e Tecnologia</h4>
+                        <div class="certificate-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span data-translate="issued_mar">Emitido em março de 2025</span>
+                        </div>
+                        <p data-translate="metrology_desc">Certificado de Metrologia com foco em aplicações geotécnicas e de construção civil.</p>
+                        <div class="competencies">
+                            <h5 data-translate="competences">Competências:</h5>
+                            <p data-translate="metrology_skills">Precisão em medições, calibração de equipamentos, normas de metrologia aplicadas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 2 -->
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 data-translate="soil_mechanics">Mecânica dos Solos</h3>
+                    </div>
+                    <div class="certificate-body">
+                        <h4>GINEAO - Instituto Nacional de Ensino a Distancia</h4>
+                        <div class="certificate-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span data-translate="issued_jul">Emitido em julho de 2024</span>
+                        </div>
+                        <p data-translate="soil_mechanics_desc">Formação avançada em mecânica dos solos e suas aplicações em engenharia geotécnica.</p>
+                        <div class="competencies">
+                            <h5 data-translate="competences">Competências:</h5>
+                            <p data-translate="soil_mechanics_skills">Execução de ensaios laboratoriais, sistema de qualidade, habilidades analíticas, controle de qualidade, engenharia, construção.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 3 -->
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 data-translate="asphalt_mixes">Misturas Asfálticas</h3>
+                    </div>
+                    <div class="certificate-body">
+                        <h4 data-translate="asphalt_title">Conceituação, Materiais e Dosagem</h4>
+                        <div class="certificate-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span data-translate="issued_aug">Emitido em agosto de 2024</span>
+                        </div>
+                        <p data-translate="asphalt_desc">Especialização em misturas asfálticas, abordando conceituação, materiais e métodos de dosagem.</p>
+                        <div class="competencies">
+                            <h5 data-translate="competences">Competências:</h5>
+                            <p data-translate="asphalt_skills">Sistema de qualidade, análise de materiais betuminosos, dosagem de misturas asfálticas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 4 -->
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 data-translate="pathologies_title">Patologias em Estruturas</h3>
+                    </div>
+                    <div class="certificate-body">
+                        <h4 data-translate="concrete_pathologies">Conceitos essenciais sobre Patologias em Estruturas de Concreto</h4>
+                        <div class="certificate-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span data-translate="issued_aug">Emitido em agosto de 2024</span>
+                        </div>
+                        <p data-translate="pathologies_desc">Formação especializada em identificação e análise de patologias em estruturas de concreto.</p>
+                        <div class="competencies">
+                            <h5 data-translate="competences">Competências:</h5>
+                            <p data-translate="pathologies_skills">Sistema de qualidade, diagnóstico de patologias, prevenção de falhas em estruturas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="contact_title">Entre em Contato</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Luanda, Angola</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+244 936 918 172</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>juliomalo811@outlook.com</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/juliomalo-geotecnia" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/244936918172" target="_blank" class="social-icon" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <!-- Adicione mais ícones de redes sociais se desejar -->
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-translate="quick_links_title">Links Rápidos</h3>
+                    <ul class="contact-list">
+                        <li><a href="#about" style="color: white; text-decoration: none;" data-translate="menu_about">Sobre</a></li>
+                        <li><a href="#experience" style="color: white; text-decoration: none;" data-translate="menu_experience">Experiência</a></li>
+                        <li><a href="#skills" style="color: white; text-decoration: none;" data-translate="menu_skills">Competências</a></li>
+                        <li><a href="#certifications" style="color: white; text-decoration: none;" data-translate="menu_certifications">Certificações</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Júlio Maló. <span data-translate="all_rights_reserved">Todos os direitos reservados.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Objeto de traduções para os diferentes idiomas
+        const translations = {
+            pt: {
+                // Header
+                job_title: "Técnico em Controle de Qualidade Geotécnica | Solos, Agregados & Betuminosos | Normas NP/NE/ASTM/ISO",
+                // Menu
+                menu_about: "Sobre",
+                menu_experience: "Experiência",
+                menu_skills: "Competências",
+                menu_certifications: "Certificações",
+                menu_contact: "Contato",
+                // About Section
+                about_title: "Sobre Mim",
+                about_p1: "Técnico de Laboratório com mais de 5 anos especializado em controle de qualidade geotécnica para grandes obras em Angola. Executo todos os ensaios de caracterização (solos, agregados, betuminosos e betão) seguindo normas de qualidade implantadas no laboratório (NP, ASTM e ISO), garantindo conformidade e mitigando riscos estruturais.",
+                about_p2: "Tenho domínio avançado em Excel e outros softwares para análise crítica de dados e otimização de processos. Comprometido com normas técnicas que assegurem segurança e sustentabilidade em projetos de infraestrutura.",
+                about_p3: "Busco desafios em engenharia civil onde minha expertise contribua para resiliência em escalas globais, aplicando conhecimentos em metrologia, mecânica dos solos e patologias em estruturas de concreto.",
+                // Experience Section
+                experience_title: "Experiência Profissional",
+                present: "Presente",
+                competences: "Competências:",
+                job1_title: "Técnico de Laboratório de Controle de Qualidade",
+                job1_desc: "Faço controlo de qualidade em grandes projetos fotovoltaicos, assegurando confiabilidade dos ensaios segundo as normas de qualidades (NP/ASTM/UNEC).",
+                job1_skills: "Liderança de ensaios, Excel Avançado (Macros, Planilhas Dinâmicas), Controle de Qualidade em Projetos de Energia Solar",
+                job2_title: "Técnico de Laboratório Geotecnia",
+                job2_desc: "Desempenhei um papel crucial no laboratório Central, executando a caracterização geotécnica de mais de 500 amostras de solo para garantir estrita conformidade com a NP NE/UNEC.",
+                job2_skills: "Construção, Microsoft Office, Análise de Solos, Gestão de Laboratório",
+                job3_title: "Técnico de Laboratório",
+                job3_desc: "Atuação em laboratório com foco em ensaios de caracterização de materiais de construção, agregados e solos, seguindo normas técnicas estabelecidas.",
+                job3_skills: "Execução de Ensaios, Controle de Qualidade, Análise de Resultados",
+                job4_title: "Técnico de Laboratório",
+                job4_desc: "Trabalhei como técnico de laboratório, executando ensaios de caracterização completa de Solos, Agregados e Betuminosos. Realizei o controlo de Betão (desde a moldagem até ao rompimento) e o controlo de Trecho no Campo (In Situ), entre outros ensaios.",
+                job4_skills: "Caracterização de Solos, Caracterização de Agregados, Caracterização de Betuminosos, Controlo de Betão, Controlo de Trecho no Campo (In Situ), Ensaios de Laboratório",
+                // Skills Section
+                skills_title: "Principais Competências",
+                soil_tests: "Ensaios de Solos",
+                granulometry: "Granulometria",
+                attenberg: "Limites de Attenberg",
+                max_density: "Densidade Máxima",
+                geotech_char: "Caracterização Geotécnica",
+                concrete_control: "Controle de Concreto",
+                compression: "Resistência à Compressão",
+                reflection: "Reflexão",
+                concrete_analysis: "Análise de Betão",
+                pathologies: "Patologias em Estruturas",
+                quality_management: "Gestão de Qualidade",
+                audits: "Auditorias Internas",
+                compliance: "Conformidade ASTM/ISO",
+                quality_system: "Sistema de Qualidade",
+                risk_mitigation: "Mitigação de Riscos",
+                process_control: "Controle de Processos",
+                technical_tools: "Ferramentas Técnicas",
+                advanced_excel: "Excel Avançado",
+                dynamic_sheets: "Planilhas Dinâmicas",
+                data_analysis: "Análise de Dados",
+                bituminous_tests: "Ensaios de Betuminosos",
+                max_density_dmt: "Densidade Máxima (DMT)",
+                binder_content: "Teor de Ligante",
+                void_density: "Densidade de Vazios",
+                // Certifications Section
+                certifications_title: "Licenças e Certificados",
+                metrology: "Metrologia",
+                issued_mar: "Emitido em março de 2025",
+                metrology_desc: "Certificado de Metrologia com foco em aplicações geotécnicas e de construção civil.",
+                metrology_skills: "Precisão em medições, calibração de equipamentos, normas de metrologia aplicadas.",
+                soil_mechanics: "Mecânica dos Solos",
+                issued_jul: "Emitido em julho de 2024",
+                soil_mechanics_desc: "Formação avançada em mecânica dos solos e suas aplicações em engenharia geotécnica.",
+                soil_mechanics_skills: "Execução de ensaios laboratoriais, sistema de qualidade, habilidades analíticas, controle de qualidade, engenharia, construção.",
+                asphalt_mixes: "Misturas Asfálticas",
+                asphalt_title: "Conceituação, Materiais e Dosagem",
+                issued_aug: "Emitido em agosto de 2024",
+                asphalt_desc: "Especialização em misturas asfálticas, abordando conceituação, materiais e métodos de dosagem.",
+                asphalt_skills: "Sistema de qualidade, análise de materiais betuminosos, dosagem de misturas asfálticas.",
+                pathologies_title: "Patologias em Estruturas",
+                concrete_pathologies: "Conceitos essenciais sobre Patologias em Estruturas de Concreto",
+                pathologies_desc: "Formação especializada em identificação e análise de patologias em estruturas de concreto.",
+                pathologies_skills: "Sistema de qualidade, diagnóstico de patologias, prevenção de falhas em estruturas.",
+                // Footer
+                contact_title: "Entre em Contato",
+                quick_links_title: "Links Rápidos",
+                all_rights_reserved: "Todos os direitos reservados."
+            },
+            en: {
+                // Header
+                job_title: "Geotechnical Quality Control Technician | Soils, Aggregates & Bituminous | NP/NE/ASTM/ISO Standards",
+                // Menu
+                menu_about: "About",
+                menu_experience: "Experience",
+                menu_skills: "Skills",
+                menu_certifications: "Certifications",
+                menu_contact: "Contact",
+                // About Section
+                about_title: "About Me",
+                about_p1: "Laboratory Technician with over 5 years of experience specializing in geotechnical quality control for large-scale projects in Angola. I perform all characterization tests (solils, aggregates, bituminous materials, and concrete) following laboratory quality standards (NP, ASTM, and ISO), ensuring compliance and mitigating structural risks.",
+                about_p2: "I have advanced proficiency in Excel and other software for critical data analysis and process optimization. I am committed to technical standards that ensure safety and sustainability in infrastructure projects.",
+                about_p3: "I seek challenges in civil engineering where my expertise contributes to resilience on a global scale, applying knowledge in metrology, soil mechanics, and concrete structure pathologies.",
+                // Experience Section
+                experience_title: "Professional Experience",
+                present: "Present",
+                competences: "Competencies:",
+                job1_title: "Quality Control Laboratory Technician",
+                job1_desc: "I perform quality control in large photovoltaic projects, ensuring the reliability of tests according to quality standards (NP/ASTM/UNEC).",
+                job1_skills: "Test Leadership, Advanced Excel (Macros, Dynamic Spreadsheets), Quality Control in Solar Energy Projects",
+                job2_title: "Geotechnical Laboratory Technician",
+                job2_desc: "I played a crucial role in the Central laboratory, performing geotechnical characterization of over 500 soil samples to ensure strict compliance with NP NE/UNEC.",
+                job2_skills: "Construction, Microsoft Office, Soil Analysis, Laboratory Management",
+                job3_title: "Laboratory Technician",
+                job3_desc: "Work in a laboratory focused on characterization tests of construction materials, aggregates, and soils, following established technical standards.",
+                job3_skills: "Test Execution, Quality Control, Results Analysis",
+                job4_title: "Laboratory Technician",
+                job4_desc: "I worked as a laboratory technician at Odebrecht from 2017 to 2019, performing complete characterization tests for Soils, Aggregates, and Bituminous materials. I carried out Concrete control (from molding to breaking) and On-site (In Situ) Section control, among other tests.",
+                job4_skills: "Soil Characterization, Aggregate Characterization, Bituminous Characterization, Concrete Control, On-site Section Control (In Situ), Laboratory Tests",
+                // Skills Section
+                skills_title: "Key Competencies",
+                soil_tests: "Soil Tests",
+                granulometry: "Granulometry",
+                attenberg: "Atterberg Limits",
+                max_density: "Maximum Density",
+                geotech_char: "Geotechnical Characterization",
+                concrete_control: "Concrete Control",
+                compression: "Compression Strength",
+                reflection: "Reflection",
+                concrete_analysis: "Concrete Analysis",
+                pathologies: "Structural Pathologies",
+                quality_management: "Quality Management",
+                audits: "Internal Audits",
+                compliance: "ASTM/ISO Compliance",
+                quality_system: "Quality System",
+                risk_mitigation: "Risk Mitigation",
+                process_control: "Process Control",
+                technical_tools: "Technical Tools",
+                advanced_excel: "Advanced Excel",
+                dynamic_sheets: "Dynamic Spreadsheets",
+                data_analysis: "Data Analysis",
+                bituminous_tests: "Bituminous Tests",
+                max_density_dmt: "Maximum Density (DMT)",
+                binder_content: "Binder Content",
+                void_density: "Void Density",
+                // Certifications Section
+                certifications_title: "Licenses & Certifications",
+                metrology: "Metrology",
+                issued_mar: "Issued March 2025",
+                metrology_desc: "Metrology certificate focusing on geotechnical and civil construction applications.",
+                metrology_skills: "Precision in measurements, equipment calibration, applied metrology standards.",
+                soil_mechanics: "Soil Mechanics",
+                issued_jul: "Issued July 2024",
+                soil_mechanics_desc: "Advanced training in soil mechanics and its applications in geotechnical engineering.",
+                soil_mechanics_skills: "Laboratory test execution, quality system, analytical skills, quality control, engineering, construction.",
+                asphalt_mixes: "Asphalt Mixtures",
+                asphalt_title: "Concepts, Materials and Dosage",
+                issued_aug: "Issued August 2024",
+                asphalt_desc: "Specialization in asphalt mixtures, covering concepts, materials, and dosage methods.",
+                asphalt_skills: "Quality system, bituminous materials analysis, asphalt mixture dosage.",
+                pathologies_title: "Structural Pathologies",
+                concrete_pathologies: "Essential Concepts on Concrete Structure Pathologies",
+                pathologies_desc: "Specialized training in identifying and analyzing pathologies in concrete structures.",
+                pathologies_skills: "Quality system, pathology diagnosis, structural failure prevention.",
+                // Footer
+                contact_title: "Contact Me",
+                quick_links_title: "Quick Links",
+                all_rights_reserved: "All rights reserved."
+            },
+            fr: {
+                // Header
+                job_title: "Technicien en Contrôle Qualité Géotechnique | Sols, Agrégats & Bitumineux | Normes NP/NE/ASTM/ISO",
+                // Menu
+                menu_about: "À Propos",
+                menu_experience: "Expérience",
+                menu_skills: "Compétences",
+                menu_certifications: "Certifications",
+                menu_contact: "Contact",
+                // About Section
+                about_title: "À Propos de Moi",
+                about_p1: "Technicien de laboratoire avec plus de 5 ans d'expérience spécialisé dans le contrôle qualité géotechnique pour de grands projets en Angola. J'effectue tous les essais de caractérisation (sols, agrégats, matériaux bitumineux et béton) selon les normes de qualité mises en œuvre en laboratoire (NP, ASTM et ISO), garantissant la conformité et atténuant les risques structurels.",
+                about_p2: "J'ai une maîtrise avancée d'Excel et d'autres logiciels pour l'analyse critique des données et l'optimisation des processus. Je suis engagé envers les normes techniques qui assurent la sécurité et la durabilité des projets d'infrastructure.",
+                about_p3: "Je recherche des défis en génie civil où mon expertise contribue à la résilience à l'échelle mondiale, en appliquant mes connaissances en métrologie, mécanique des sols et pathologies des structures en béton.",
+                // Experience Section
+                experience_title: "Expérience Professionnelle",
+                present: "Actuel",
+                competences: "Compétences :",
+                job1_title: "Technicien de Laboratoire Contrôle Qualité",
+                job1_desc: "J'effectue le contrôle qualité dans de grands projets photovoltaïques, assurant la fiabilité des essais selon les normes de qualité (NP/ASTM/UNEC).",
+                job1_skills: "Leadership d'essais, Excel Avancé (Macros, Tableaux Dynamiques), Contrôle Qualité dans les Projets d'Énergie Solaire",
+                job2_title: "Technicien de Laboratoire Géotechnique",
+                job2_desc: "J'ai joué un rôle crucial au laboratoire Central, effectuant la caractérisation géotechnique de mais de 500 amostras de solo para garantir estrita conformidade com a NP NE/UNEC.",
+                job2_skills: "Construction, Microsoft Office, Analyse de Sols, Gestion de Laboratoire",
+                job3_title: "Technicien de Laboratoire",
+                job3_desc: "Travail en laboratorio axé sur les essais de caracterização dos materiais de construção, agrégats e solos, seguindo as normas técnicas estabelecidas.",
+                job3_skills: "Execução d'Essais, Contrôle Qualité, Analyse des Résultats",
+                job4_title: "Technicien de Laboratório",
+                job4_desc: "J'ai travaillé como técnico de laboratório, executando ensaios de caracterização completa de Solos, Agregados e Betuminosos. Realizei o controlo de Betão (desde a moldagem até ao rompimento) e o controlo de Trecho no Campo (In Situ), entre outros ensaios.",
+                job4_skills: "Caractérisation de Solos, Caractérisation de Agregados, Caractérisation de Betuminosos, Controlo de Betão, Controlo de Trecho no Campo (In Situ), Essais de Laboratoire",
+                // Skills Section
+                skills_title: "Compétences Clés",
+                soil_tests: "Essais de Sols",
+                granulometry: "Granulométrie",
+                attenberg: "Limites d'Atterberg",
+                max_density: "Densité Maximale",
+                geotech_char: "Caractérisation Géotechnique",
+                concrete_control: "Contrôle du Béton",
+                compression: "Résistance à la Compression",
+                reflection: "Réflexion",
+                concrete_analysis: "Analyse du Béton",
+                pathologies: "Pathologies Structurelles",
+                quality_management: "Gestion de la Qualité",
+                audits: "Audits Internes",
+                compliance: "Conformité ASTM/ISO",
+                quality_system: "Système de Qualité",
+                risk_mitigation: "Atténuation des Risques",
+                process_control: "Contrôle des Processus",
+                technical_tools: "Outils Techniques",
+                advanced_excel: "Excel Avancé",
+                dynamic_sheets: "Feuilles de Calcul Dynamiques",
+                data_analysis: "Analyse de Données",
+                bituminous_tests: "Essais de Bitumineux",
+                max_density_dmt: "Densité Maximale (DMT)",
+                binder_content: "Teneur en Liant",
+                void_density: "Densité des Vides",
+                // Certifications Section
+                certifications_title: "Licenças e Certificados",
+                metrology: "Métrologie",
+                issued_mar: "Délivré en mars 2025",
+                metrology_desc: "Certificat de Métrologie axé sur les applications géotechniques et de génie civil.",
+                metrology_skills: "Précision des mesures, étalonnage des équipements, normas de metrologia aplicadas.",
+                soil_mechanics: "Mécanique des Sols",
+                issued_jul: "Délivré en juillet 2024",
+                soil_mechanics_desc: "Formação avançada em mecânica dos solos e suas aplicações em engenharia geotécnica.",
+                soil_mechanics_skills: "Execução d'essais en laboratoire, sistema qualidade, compétences analytiques, controle qualidade, ingénierie, construction.",
+                asphalt_mixes: "Mélanges Asphalte",
+                asphalt_title: "Conception, Matériaux et Dosage",
+                issued_aug: "Délivré en août 2024",
+                asphalt_desc: "Spécialisation en mélanges d'asfalto, abordando conceituação, materiais e métodos de dosagem.",
+                asphalt_skills: "Sistema de qualidade, análise de materiais bitumineux, dosagem de misturas asfálticas.",
+                pathologies_title: "Patologias des Estruturas",
+                concrete_pathologies: "Conceitos essenciais sobre Patologias em Estruturas de Concreto",
+                pathologies_desc: "Formação especializada em identificação e análise de patologias em estruturas de concreto.",
+                pathologies_skills: "Sistema de qualidade, diagnóstico de patologias, prevenção de falhas em estruturas.",
+                // Footer
+                contact_title: "Contactez-moi",
+                quick_links_title: "Liens Rapides",
+                all_rights_reserved: "Todos os direitos reservados."
+            }
+        };
+
+        // Função para definir o idioma da página
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Lidar com elementos específicos que não usam data-translate diretamente ou precisam de tratamento especial
+            const jobTitleElement = document.querySelector('h2[data-translate="job_title"]');
+            if (jobTitleElement && translations[lang] && translations[lang].job_title) {
+                jobTitleElement.textContent = translations[lang].job_title;
+            }
+
+            const aboutTextContentElement = document.getElementById('about-text-content');
+            if (aboutTextContentElement && translations[lang] && translations[lang].about_p1) {
+                aboutTextContentElement.textContent = translations[lang].about_p1;
+            }
+        }
+
+        // Define o idioma inicial ao carregar a página (Português como padrão)
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('pt'); 
+        });
+
+        // Adiciona event listeners aos botões de idioma
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove a classe 'active' de todos os botões de idioma
+                document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+                // Adiciona a classe 'active' ao botão clicado
+                this.classList.add('active');
+                // Chama a função para definir o idioma com base no data-lang do botão
+                setLanguage(this.dataset.lang);
+            });
+        });
+
+        // Lógica para animação de rolagem (Scroll-Reveal)
+        const sections = document.querySelectorAll('section');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // observer.unobserve(entry.target); // Opcional: para animar apenas uma vez
+                } else {
+                    // entry.target.classList.remove('is-visible'); // Opcional: para reanimar ao rolar para fora
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        const timelineObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // observer.unobserve(entry.target); // Opcional: para animar apenas uma vez
+                } else {
+                    // entry.target.classList.remove('is-visible'); // Opcional: para reanimar ao rolar para fora
+                }
+            });
+        }, {
+            threshold: 0.3 // Ajuste para itens da timeline
+        });
+
+        timelineItems.forEach(item => {
+            timelineObserver.observe(item);
+        });
+
+        // Lógica para rolagem suave da navegação
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Lógica para o botão de rolagem para o topo
+        const scrollTopBtn = document.createElement('button');
+        scrollTopBtn.id = 'scrollTopBtn';
+        scrollTopBtn.title = 'Ir para o topo';
+        scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        document.body.appendChild(scrollTopBtn);
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        scrollTopBtn.addEventListener('click', () => {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+        });
+    </script>
+</body>
+</html>
