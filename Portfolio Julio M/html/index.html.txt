@@ -901,7 +901,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="profile-image">
-                    <img src="https://1drv.ms/i/c/41d14dd0accae611/IQQOAcXAMv3ERaTjlVk7u3PgAQoN50U89jsjLa_SIj6sY_c?width=838&height=1461" alt="Foto de Perfil de Júlio Maló">
+                    <!-- Imagem de perfil atualizada com o link do GitHub -->
+                    <img src="https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Profile.jpg" alt="Foto de Perfil de Júlio Maló">
                 </div>
                 <h1>Júlio Maló</h1>
                 <h2 data-translate="job_title">Técnico em Controle de Qualidade Geotécnica | Solos, Agregados & Betuminosos | Normas NP/NE/ASTM/ISO</h2>
@@ -978,7 +979,7 @@
                 <!-- Imagem para a experiência MCA - no lado oposto -->
                 <div class="timeline-item timeline-image-item">
                     <div class="timeline-content">
-                        <img src="https://1drv.ms/i/c/41d14dd0accae611/IQR5Gcs1P-KuSogG501E2v_yASCdOvEflusQz8vqe-uyp1I?width=1024" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="Imagem de Técnico de Laboratório de Qualidade">
+                        <img src="https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/MCa.jpg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="Imagem de Técnico de Laboratório de Qualidade da MCA">
                     </div>
                 </div>
 
@@ -995,7 +996,7 @@
                 <!-- Nova Imagem para a experiência Mota-Engil - no lado oposto -->
                 <div class="timeline-item timeline-image-item">
                     <div class="timeline-content">
-                        <img src="https://1drv.ms/i/c/41d14dd0accae611/IQTTLOiGa80xQaZXz4LRISdbAScBuHiTIwrfPBVP3xPRrjw?width=1024" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="Imagem de Técnico de Laboratório Geotecnia">
+                        <img src="https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Mota.jpg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="Imagem de Técnico de Laboratório de Geotecnia da Mota-Engil">
                     </div>
                 </div>
                 
@@ -1012,7 +1013,7 @@
                 <!-- Nova Imagem para a experiência Omatapalo - no lado oposto -->
                 <div class="timeline-item timeline-image-item">
                     <div class="timeline-content">
-                        <img src="https://1drv.ms/i/c/41d14dd0accae611/IQSBAmiWnbPBQ6dq2oOKEGAZAUfp3jQKn7LX9ur-CMDPvI0?width=1024" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="Imagem de Técnico de Laboratório Omatapalo">
+                        <img src="https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Mota.jpg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="Imagem de Técnico de Laboratório Omatapalo">
                     </div>
                 </div>
 
@@ -1029,7 +1030,7 @@
                 <!-- Nova Imagem para a experiência Odebrecht - no lado oposto -->
                 <div class="timeline-item timeline-image-item">
                     <div class="timeline-content">
-                        <img src="https://1drv.ms/i/c/41d14dd0accae611/IQSwh0-VtAqLTLRJsum3qvkKAVdyHrGjx_TxIyvm0Qzn35I?width=1024" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="Imagem de Técnico de Laboratório Odebrecht">
+                        <img src="https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Ode.jpg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="Imagem de Técnico de Laboratório Odebrecht">
                     </div>
                 </div>
             </div>
@@ -1457,28 +1458,28 @@
                 menu_about: "À Propos",
                 menu_experience: "Expérience",
                 menu_skills: "Compétences",
-                menu_certifications: "Certifications",
+                menu_certifications: "Certificações",
                 menu_contact: "Contact",
                 // About Section
                 about_title: "À Propos de Moi",
                 about_p1: "Technicien de laboratoire avec plus de 5 ans d'expérience en contrôle qualité géotechnique, intervenant sur de grands projets en Angola. Je me suis spécialisé dans les essais de caractérisation des sols, granulats, bétons et matériaux bitumineux, assurant la conformité avec les normes NP, EN, ASTM et ISO.",
                 about_p2: "J'ai contribué à plus de 20 projets d'infrastructure, réduisant les non-conformités jusqu'à 20% grâce à l'utilisation d'outils tels qu'Excel Avancé et Go-Lab. Je suis passionné par le génie civil et engagé envers la sécurité et la durabilité, recherchant des défis où mon expertise peut générer un impact mondial. J'ai une maîtrise avancée de l'analyse de données et de l'optimisation des processus, toujours en ligne avec les meilleures pratiques techniques.",
-                about_p3: "Je suis ouvert aux collaborations et opportunités dans le domaine de la géotechnique – connectez-vous avec moi pour échanger des expériences !",
+                about_p3: "Je suis aberto aux colaborações et oportunidades dans le domaine de la géotechnique – conecte-se comigo para trocar experiências !",
                 // Experience Section
                 experience_title: "Expérience Professionnelle",
                 present: "Actuel",
                 competences: "Compétences :",
                 job1_title: "Technicien de Laboratoire Contrôle Qualité",
-                job1_desc: "J'effectue le contrôle qualité dans de grands projets photovoltaïques, assurant la fiabilité des essais selon les normes de qualité (NP/ASTM/UNEC).",
+                job1_desc: "J'effectue le contrôle qualité dans de grands projets photovoltaïques, assurant la fiabilité des essais selon les normes de qualidade (NP/ASTM/UNEC).",
                 job1_skills: "Leadership d'essais, Excel Avancé (Macros, Tableaux Dynamiques), Contrôle Qualité dans les Projets d'Énergie Solaire",
                 job2_title: "Technicien de Laboratoire Géotechnique",
-                job2_desc: "J'ai joué un rôle crucial au laboratoire Central, effectuant la caractérisation géotechnique de plus de 500 échantillons de sol pour garantir une stricte conformité avec la NP NE/UNEC.",
+                job2_desc: "J'ai joué un rôle crucial au laboratoire Central, effectuant la caractérisation géotechnique de plus de 500 échantillons de sol pour garantir une stricte conformidade com a NP NE/UNEC.",
                 job2_skills: "Construction, Microsoft Office, Analyse de Sols, Gestion de Laboratoire",
                 job3_title: "Technicien de Laboratório",
                 job3_desc: "Travail en laboratoire axé sur les essais de caractérisation des matériaux de construction, agrégats et sols, suivant les normes techniques établies.",
                 job3_skills: "Exécution d'Essais, Contrôle Qualidade, Analyse des Résultats",
                 job4_title: "Technicien de Laboratório",
-                job4_desc: "J'ai travaillé como técnico de laboratório, executando des essais de caractérisation complète de Sols, Agrégats et Bitumineux. J'ai réalisé le contrôle du Béton (du moulage à la rupture) et le contrôle de Section sur le Terrain (In Situ), entre outros ensaios.",
+                job4_desc: "J'ai trabalhei como técnico de laboratório, executando des essais de caracterização completa de Sols, Agrégats et Bitumineux. J'ai réalisé le contrôle du Béton (du moulage à la rupture) et le contrôle de Section sur le Terrain (In Situ), entre outros ensaios.",
                 job4_skills: "Caractérisation de Sols, Caractérisation de Granulats, Caractérisation de Bitumineux, Contrôle du Béton, Contrôle de Section sur le Terrain (In Situ), Essais de Laboratoire",
                 // Skills Section
                 skills_title: "Compétences Clés",
@@ -1492,16 +1493,16 @@
                 reflection: "Réflexion",
                 concrete_analysis: "Analyse du Béton",
                 pathologies: "Pathologies Structurelles",
-                quality_management: "Gestion de la Qualité",
+                quality_management: "Gestion de la Qualidade",
                 audits: "Audits Internes",
                 compliance: "Conformité ASTM/ISO",
                 quality_system: "Système de Qualidade",
                 risk_mitigation: "Atténuation des Risques",
-                process_control: "Contrôle des Processus",
+                process_control: "Contrôle des Processos",
                 technical_tools: "Outils Techniques",
                 advanced_excel: "Excel Avancé",
                 dynamic_sheets: "Feuilles de Calcul Dynamiques",
-                data_analysis: "Analyse de Données",
+                data_analysis: "Análise de Données",
                 bituminous_tests: "Essais de Bitumineux",
                 max_density_dmt: "Densité Maximale (DMT)",
                 binder_content: "Teneur en Liant",
@@ -1513,25 +1514,25 @@
                 metrology_desc: "Certificat de Métrologie axé sur les applications géotechniques et de génie civil.",
                 metrology_skills: "Précision des mesures, étalonnage des équipements, normes de métrologie appliquées.",
                 soil_mechanics: "Mécanique des Sols",
-                issued_jul: "Délivré en juillet 2024",
+                issued_jul: "Délivré en julho de 2024",
                 soil_mechanics_desc: "Formação avançada em mecânica dos solos e suas aplicações em engenharia geotécnica, axada na execução de ensaios em laboratório e sistemas de qualidade.",
-                soil_mechanics_skills: "Exécution d'essais en laboratoire, sistema qualidade, compétences analytiques, controle qualidade, ingénierie, construction.",
+                soil_mechanics_skills: "Exécution d'essais en laboratório, sistema qualidade, compétences analytiques, controle qualidade, ingénierie, construction.",
                 asphalt_mixes: "Mélanges Asphalte",
                 asphalt_title: "Conception, Matériaux et Dosage",
-                issued_aug: "Délivré en août 2024",
+                issued_aug: "Délivré en agosto de 2024",
                 asphalt_desc: "Spécialisation en mélanges d'asphalte, abordando conceituação, materiais e métodos de dosagem.",
-                asphalt_skills: "Système de qualidade, análise de materiais bitumineux, dosagem de misturas asfálticas.",
+                asphalt_skills: "Système de qualidade, análise de materiais bituminosos, dosagem de misturas asfálticas.",
                 pathologies_title: "Patologias des Estruturas",
                 concrete_pathologies: "Conceitos essenciais sobre Patologias em Estruturas de Concreto",
                 pathologies_desc: "Formação especializada em identificação e análise de patologias em estruturas de concreto.",
                 pathologies_skills: "Sistema de qualidade, diagnóstico de patologias, prevenção de falhas em estruturas.",
                 construction_material: "Matériaux de Construction",
                 issued_jun: "Délivré en junho de 2024",
-                construction_material_desc: "Cours axé sur la conceptualização, les propriétés et les aplicações dos materiais de construção essenciais para o génie civil.",
+                construction_material_desc: "Cours axé sur la conceptualização, les propriedades et les aplicações dos materiais de construção essenciais para o génie civil.",
                 construction_material_skills: "Análise de materiais, normas de construção, controle de qualidade em obras, ensaios de materiais.",
                 geotechnical_description: "Description géotechnique des témoins de sondage",
-                issued_dez: "Délivré en déc 2024",
-                geotechnical_description_desc: "Cours sur la description e classificação des témoins de sondagem para fins geotécnicos.",
+                issued_dez: "Délivré en dez de 2024",
+                geotechnical_description_desc: "Cours sur a descrição e classificação dos testemunhos de sondagem para fins geotécnicos.",
                 geotechnical_description_skills: "Classificação des sols, interpretação das sondagens, documentação geotécnica, relatórios técnicos."
             }
         };
