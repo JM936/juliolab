@@ -48,7 +48,7 @@
             font-family: var(--font-body);
             background-color: var(--light); /* Fundo suave */
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.7; /* Aumentado para melhor legibilidade */
             padding-top: 80px; /* Espaço para o seletor de idioma fixo */
         }
         
@@ -250,6 +250,27 @@
         nav a.active { /* Estilo para o link ativo */
             color: var(--primary);
         }
+
+        /* Estilo para botões de CTA */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
         
         /* Estilos de Seção */
         section {
@@ -364,7 +385,7 @@
         .about-content p {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            line-height: 1.8;
+            line-height: 1.7; /* Ajustado para melhor legibilidade */
         }
         
         .highlight {
@@ -562,6 +583,32 @@
             gap: 12px;
         }
         
+        /* Estilo para os skills individuais com ícones */
+        .skill {
+            background: rgba(0, 86, 179, 0.1);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil para os skills */
+            display: flex; /* Para alinhar o ícone e o texto */
+            align-items: center;
+            gap: 8px; /* Espaçamento entre ícone e texto */
+        }
+        
+        .skill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px) scale(1.05); /* Efeito mais pronunciado */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+        }
+
+        .skill i {
+            font-size: 1.1rem; /* Tamanho do ícone dentro da skill */
+        }
+        
         /* Animação em cascata para as skills */
         .skill-category.is-visible .skill {
             opacity: 0;
@@ -582,25 +629,6 @@
         @keyframes fadeInSlideUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-
-        .skill {
-            background: rgba(0, 86, 179, 0.1);
-            color: var(--primary);
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all var(--transition-speed);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil para os skills */
-        }
-        
-        .skill:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px) scale(1.05); /* Efeito mais pronunciado */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
         }
         
         /* Certificações */
@@ -905,7 +933,8 @@
                     <img src="https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Profile.jpg" alt="Profile picture of Júlio Maló" loading="lazy">
                 </div>
                 <h1>Júlio Maló</h1>
-                <h2 data-translate="job_title">Geotechnical Quality Control Technician | Soils, Aggregates, Concrete & Bituminous | NP/NE/ASTM/ISO Standards</h2>
+                <!-- Proposta de valor aprimorada no título do cargo -->
+                <h2 data-translate="job_title">Geotechnical Quality Control Technician | Ensuring Safety and Efficiency in Infrastructure Projects</h2>
                 
                 <div class="contact-info">
                     <div class="contact-item">
@@ -954,6 +983,13 @@
                 </div>
                 
                 <p data-translate="about_p3">I am open to collaborations and opportunities in the field of geotechnics – connect with me to exchange experiences!</p>
+
+                <!-- CTA na seção Sobre Mim -->
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://www.linkedin.com/in/juliomalo-geotecnia" target="_blank" class="cta-button">
+                        <i class="fab fa-linkedin-in"></i> <span data-translate="linkedin_cta">Connect on LinkedIn</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1034,6 +1070,12 @@
                     </div>
                 </div>
             </div>
+            <!-- CTA após a seção de Experiência -->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-envelope"></i> <span data-translate="contact_cta">Get in Touch</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1048,57 +1090,57 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-flask"></i> <span data-translate="soil_tests">Soil Tests</span></h3>
                     <div class="skills-list">
-                        <span class="skill">Proctor</span>
-                        <span class="skill" data-translate="granulometry">Granulometry</span>
-                        <span class="skill" data-translate="attenberg">Atterberg Limits</span>
-                        <span class="skill">CBR</span>
-                        <span class="skill" data-translate="max_density">Maximum Density</span>
-                        <span class="skill" data-translate="geotech_char">Geotechnical Characterization</span>
+                        <span class="skill"><i class="fas fa-vials"></i> Proctor</span>
+                        <span class="skill" data-translate="granulometry"><i class="fas fa-ruler-combined"></i> Granulometry</span>
+                        <span class="skill" data-translate="attenberg"><i class="fas fa-globe-americas"></i> Atterberg Limits</span>
+                        <span class="skill"><i class="fas fa-road"></i> CBR</span>
+                        <span class="skill" data-translate="max_density"><i class="fas fa-weight"></i> Maximum Density</span>
+                        <span class="skill" data-translate="geotech_char"><i class="fas fa-mountain"></i> Geotechnical Characterization</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
                     <h3><i class="fas fa-hard-hat"></i> <span data-translate="concrete_control">Concrete Control</span></h3>
                     <div class="skills-list">
-                        <span class="skill">Slump Test</span>
-                        <span class="skill" data-translate="compression">Compression Strength</span>
-                        <span class="skill" data-translate="reflection">Reflection</span>
-                        <span class="skill" data-translate="concrete_analysis">Concrete Analysis</span>
-                        <span class="skill" data-translate="pathologies">Structural Pathologies</span>
+                        <span class="skill"><i class="fas fa-mortar-pestle"></i> Slump Test</span>
+                        <span class="skill" data-translate="compression"><i class="fas fa-compress-arrows-alt"></i> Compression Strength</span>
+                        <span class="skill" data-translate="reflection"><i class="fas fa-lightbulb"></i> Reflection</span>
+                        <span class="skill" data-translate="concrete_analysis"><i class="fas fa-cube"></i> Concrete Analysis</span>
+                        <span class="skill" data-translate="pathologies"><i class="fas fa-exclamation-triangle"></i> Structural Pathologies</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
                     <h3><i class="fas fa-chart-line"></i> <span data-translate="quality_management">Quality Management</span></h3>
                     <div class="skills-list">
-                        <span class="skill" data-translate="audits">Internal Audits</span>
-                        <span class="skill" data-translate="compliance">ASTM/ISO Compliance</span>
-                        <span class="skill" data-translate="quality_system">Quality System</span>
-                        <span class="skill" data-translate="risk_mitigation">Risk Mitigation</span>
-                        <span class="skill" data-translate="process_control">Process Control</span>
+                        <span class="skill" data-translate="audits"><i class="fas fa-clipboard-check"></i> Internal Audits</span>
+                        <span class="skill" data-translate="compliance"><i class="fas fa-certificate"></i> ASTM/ISO Compliance</span>
+                        <span class="skill" data-translate="quality_system"><i class="fas fa-cogs"></i> Quality System</span>
+                        <span class="skill" data-translate="risk_mitigation"><i class="fas fa-shield-alt"></i> Risk Mitigation</span>
+                        <span class="skill" data-translate="process_control"><i class="fas fa-project-diagram"></i> Process Control</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
                     <h3><i class="fas fa-road"></i> <span data-translate="bituminous_tests">Bituminous Tests</span></h3>
                     <div class="skills-list">
-                        <span class="skill">Marshall</span>
-                        <span class="skill" data-translate="max_density_dmt">Maximum Density (DMT)</span>
-                        <span class="skill" data-translate="binder_content">Binder Content</span>
-                        <span class="skill" data-translate="void_density">Void Density</span>
-                        <span class="skill">Baridades</span>
+                        <span class="skill"><i class="fas fa-fire"></i> Marshall</span>
+                        <span class="skill" data-translate="max_density_dmt"><i class="fas fa-balance-scale"></i> Maximum Density (DMT)</span>
+                        <span class="skill" data-translate="binder_content"><i class="fas fa-oil-can"></i> Binder Content</span>
+                        <span class="skill" data-translate="void_density"><i class="fas fa-circle-notch"></i> Void Density</span>
+                        <span class="skill"><i class="fas fa-gas-pump"></i> Baridades</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
                     <h3><i class="fas fa-laptop-code"></i> <span data-translate="technical_tools">Technical Tools</span></h3>
                     <div class="skills-list">
-                        <span class="skill" data-translate="advanced_excel">Advanced Excel</span>
-                        <span class="skill">Macros Excel</span>
-                        <span class="skill" data-translate="dynamic_sheets">Dynamic Spreadsheets</span>
-                        <span class="skill">Go-Lab (Advanced)</span>
-                        <span class="skill" data-translate="data_analysis">Data Analysis</span>
-                        <span class="skill">Microsoft Office</span>
+                        <span class="skill" data-translate="advanced_excel"><i class="fas fa-file-excel"></i> Advanced Excel</span>
+                        <span class="skill"><i class="fas fa-code"></i> Macros Excel</span>
+                        <span class="skill" data-translate="dynamic_sheets"><i class="fas fa-table"></i> Dynamic Spreadsheets</span>
+                        <span class="skill"><i class="fas fa-microscope"></i> Go-Lab (Advanced)</span>
+                        <span class="skill" data-translate="data_analysis"><i class="fas fa-chart-pie"></i> Data Analysis</span>
+                        <span class="skill"><i class="fas fa-file-alt"></i> Microsoft Office</span>
                     </div>
                 </div>
             </div>
@@ -1291,7 +1333,7 @@
         const translations = {
             pt: {
                 // Cabeçalho
-                job_title: "Técnico em Controle de Qualidade Geotécnica | Solos, Agregados, Concreto & Betuminosos | Normas NP/NE/ASTM/ISO",
+                job_title: "Técnico em Controle de Qualidade Geotécnica | Garantindo Segurança e Eficiência em Projetos de Infraestrutura",
                 // Menu
                 menu_about: "Sobre",
                 menu_experience: "Experiência",
@@ -1303,6 +1345,8 @@
                 about_p1: "Técnico de Laboratório com mais de 5 anos de experiência em controle de qualidade geotécnica, atuando em grandes projetos em Angola. Especializei-me em ensaios de caracterização de solos, agregados, concreto e betuminosos, assegurando conformidade com normas NP, EN, ASTM e ISO.",
                 about_p2: "Contribuí para mais de 20 projetos de infraestrutura, reduzindo inconformidades em até 20% com o uso de ferramentas como Excel Avançado e Go-Lab. Sou apaixonado por engenharia civil e comprometido com a segurança e sustentabilidade, buscando desafios onde minha expertise possa gerar impacto global. Tenho domínio avançado em análise de dados e otimização de processos, sempre alinhado às melhores práticas técnicas.",
                 about_p3: "Estou aberto a colaborações e oportunidades na área de geotecnia – conecte-se comigo para trocar experiências!",
+                linkedin_cta: "Conecte-se no LinkedIn",
+                contact_cta: "Entre em Contato",
                 // Seção Experiência
                 experience_title: "Experiência Profissional",
                 present: "Presente",
@@ -1379,7 +1423,7 @@
             },
             en: {
                 // Header
-                job_title: "Geotechnical Quality Control Technician | Soils, Aggregates, Concrete & Bituminous | NP/NE/ASTM/ISO Standards",
+                job_title: "Geotechnical Quality Control Technician | Ensuring Safety and Efficiency in Infrastructure Projects",
                 // Menu
                 menu_about: "About",
                 menu_experience: "Experience",
@@ -1391,6 +1435,8 @@
                 about_p1: "Laboratory Technician with over 5 years of experience in geotechnical quality control, working on major projects in Angola. I specialize in characterization tests for soils, aggregates, concrete, and bituminous materials, ensuring compliance with NP, EN, ASTM, and ISO standards.",
                 about_p2: "I have contributed to over 20 infrastructure projects, reducing non-conformities by up to 20% through the use of tools like Advanced Excel and Go-Lab. I am passionate about civil engineering and committed to safety and sustainability, seeking challenges where my expertise can generate global impact. I have advanced proficiency in data analysis and process optimization, always aligned with best technical practices.",
                 about_p3: "I am open to collaborations and opportunities in the field of geotechnics – connect with me to exchange experiences!",
+                linkedin_cta: "Connect on LinkedIn",
+                contact_cta: "Get in Touch",
                 // Experience Section
                 experience_title: "Professional Experience",
                 present: "Present",
@@ -1467,7 +1513,7 @@
             },
             fr: {
                 // Header
-                job_title: "Technicien en Contrôle Qualité Géotechnique | Sols, Agrégats, Béton & Bitumineux | Normes NP/NE/ASTM/ISO",
+                job_title: "Technicien en Contrôle Qualité Géotechnique | Garantissant Sécurité et Efficacité dans les Projets d'Infrastructure",
                 // Menu
                 menu_about: "À Propos",
                 menu_experience: "Expérience",
@@ -1477,8 +1523,10 @@
                 // About Section
                 about_title: "À Propos de Moi",
                 about_p1: "Technicien de laboratoire avec plus de 5 ans d'expérience en contrôle qualité géotechnique, intervenant sur de grands projets en Angola. Je me suis spécialisé dans les essais de caractérisation des sols, granulats, bétons et matériaux bitumineux, assurant la conformité avec les normes NP, EN, ASTM et ISO.",
-                about_p2: "J'ai contribué à plus de 20 projets d'infrastructure, réduisant les non-conformités jusqu'à 20% grâce à l'utilisation d'outils tels qu'Excel Avancé et Go-Lab. Je suis passionné par le génie civil et engagé envers la sécurité et la durabilité, recherchant des desafios onde minha expertise possa gerar impacto global. J'ai une maîtrise avancée de l'analyse de données et de l'optimisation des processus, toujours en ligne avec les meilleures pratiques techniques.",
+                about_p2: "J'ai contribué à plus de 20 projets d'infrastructure, réduisant les non-conformités jusqu'à 20% grâce à l'utilisation d'outils tels qu'Excel Avancé et Go-Lab. Je suis passionné par le génie civil et engagé envers la sécurité et la durabilité, recherchant des défis où mon expertise peut générer un impact mondial. J'ai une maîtrise avancée de l'analyse de données et de l'optimisation des processus, toujours en ligne avec les meilleures pratiques techniques.",
                 about_p3: "Je suis ouvert aux collaborations et opportunités dans le domaine de la géotechnique – connectez-vous avec moi para échanger des expériences !",
+                linkedin_cta: "Connectez-vous sur LinkedIn",
+                contact_cta: "Contactez-moi",
                 // Experience Section
                 experience_title: "Expérience Professionnelle",
                 present: "Actuel",
@@ -1547,7 +1595,7 @@
                 geotechnical_description: "Description géotechnique des témoins de sondage",
                 issued_dez: "Délivré en déc. 2024",
                 geotechnical_description_desc: "Cours sur la description et la classification des échantillons de sondage à des fins géotechniques.",
-                geotechnical_description_skills: "Classificação des sols, interprétation des sondagens, documentação geotécnica, relatórios técnicos.",
+                geotechnical_description_skills: "Classificação des sols, interprétation des sondages, documentação geotécnica, relatórios técnicos.",
                 // Rodapé
                 contact_title: "Contactez-moi",
                 quick_links_title: "Liens Rapides",
@@ -1598,7 +1646,7 @@
                     }
                 } else {
                     // Opcional: remover a classe is-visible ao rolar para fora
-                    // entry.target.classList.remove('is-visible');
+                    /* entry.target.classList.remove('is-visible'); */
                 }
             });
         }, observerOptions);
